@@ -1,27 +1,28 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
 class CreateTodo extends Component {
+
   constructor() {
     super();
     this.state = {
-      text: '',
+      text: "",
     };
-  }
+  };
 
-  handleChange = event => {
+  handleChange = (event) => {
     this.setState({
       text: event.target.value
     });
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
-    this.props.addTodo(this.state)
+    this.props.addTodo(this.state);
     this.setState({
-      text: '',
-    })
-  }
+      text: "",
+    });
+  };
   
   render() {
     return(
@@ -36,14 +37,15 @@ class CreateTodo extends Component {
           <input type="submit" />
         </form>
       </div>
-    )
-  }
-}
+    );
+  };
 
-const mapDispatchToProps = dispatch => {
+};
+
+const mapDispatchToProps = (dispatch) => {
   return {
-    addTodo: formData => dispatch({ type: 'ADD_TODO', payload: formData })
-  }
-}
+    addTodo: (formData) => dispatch({ type: "ADD_TODO", payload: formData })
+  };
+};
 
 export default connect(null, mapDispatchToProps)(CreateTodo);
